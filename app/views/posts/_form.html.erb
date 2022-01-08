@@ -1,16 +1,15 @@
+<%=form_for @post do |f| %>
+    <% if @post.errors.any? %>
+		<div id="errors">
+			<h2><%= pluralize(@post.errors.count, "error") %> stopped this post from being published:</h2>
+			<ul>
+				<% @post.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
 
-    <%=form_for :post, url: posts_path do |f| %>
-       <% if @post.errors.any? %>
-			<div id="errors">
-				<h2><%= pluralize(@post.errors.count, "error") %> stopped this post from being published:</h2>
-				<ul>
-					<% @post.errors.full_messages.each do |msg| %>
-						<li><%= msg %></li>
-					<% end %>
-				</ul>
-			</div>
-
-		<% end %>
+	<% end %>
 
     <p>
         <%= f.label :title %><br>
@@ -23,7 +22,7 @@
     </p>
 
     <p>
-        <%= f.submit :submit %>
+        <%= f.submit %>
     </p>
 
-    <% end %>
+<% end %>
