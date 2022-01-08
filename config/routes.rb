@@ -3,9 +3,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   root 'posts#index'
 
   delete 'posts/:id/delete' => 'posts#destroy', as: 'posts_delete'
   get '/posts/:id/delete' => 'posts#destroy'
+
+# delete '/posts/:post_id/comments/:id/delete' => 'comments#destroy', as: 'comments_delete'
+# get '/posts/:post_id/comments/:id/' => 'comments#show'
 end
