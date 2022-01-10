@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
 # delete '/posts/:post_id/comments/:id/delete' => 'comments#destroy', as: 'comments_delete'
 # get '/posts/:post_id/comments/:id/' => 'comments#show'
+
+  get '/about', to: 'pages#about'
 end
